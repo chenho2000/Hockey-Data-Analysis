@@ -13,6 +13,7 @@ This project aims to analyze hockey game data using various statistical and mach
 
 ## Team Strategy Analysis
 
+Data from : https://www.stathletes.com/big-data-cup/
 ### Offensive Strategies
 
 - **Shots Analysis:** Track the number of shots attempted by each team, focusing on shots on goal, missed shots, and blocked shots. Analyze shot locations to identify high-danger areas for scoring opportunities.
@@ -32,5 +33,3 @@ To analyze team performance comprehensively, modifications will be made to the d
 ## Conclusion
 
 This project provides a comprehensive analysis of hockey game data using statistical and machine learning techniques. By examining team strategies and player behavior, valuable insights can be gained into game outcomes and performance dynamics.
-
-For any inquiries or assistance, please contact [Project Owner Name] at [Contact Information].
