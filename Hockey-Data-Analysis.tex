@@ -1,0 +1,1454 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  a3paper,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={STAT 847: Final Project},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{STAT 847: Final Project}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{DUE: Friday April 19, 2024 by 11:59pm Eastern}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(plyr)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(tidyr)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:plyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(GGally)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'GGally':
+##   method from   
+##   +.gg   ggplot2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rpart)}
+\FunctionTok{library}\NormalTok{(rpart.plot)}
+\FunctionTok{library}\NormalTok{(FactoMineR)}
+\FunctionTok{library}\NormalTok{(MASS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'MASS'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     select
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rsample)}
+\FunctionTok{library}\NormalTok{(rattle)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: tibble
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: bitops
+\end{verbatim}
+
+\begin{verbatim}
+## Rattle: A free graphical interface for data science with R.
+## Version 5.5.1 Copyright (c) 2006-2021 Togaware Pty Ltd.
+## Type 'rattle()' to shake, rattle, and roll your data.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(RColorBrewer)}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(leaps)}
+\FunctionTok{library}\NormalTok{(png)}
+\FunctionTok{library}\NormalTok{(grid)}
+\FunctionTok{library}\NormalTok{(gridExtra)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'gridExtra'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(scales)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'scales'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:readr':
+## 
+##     col_factor
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"factoextra"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"./Big{-}Data{-}Cup{-}2024{-}main/BDC\_2024\_Womens\_Data.csv"}\NormalTok{)}
+\NormalTok{dat}\SpecialCharTok{$}\NormalTok{Period }\OtherTok{\textless{}{-}} \FunctionTok{as.character}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{Period)}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\vspace{2cm}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  \textbf{MUST BE INCLUDED} Describe and justify two different topics or
+  approaches you might want to consider for this dataset and task. You
+  don't have to use these tasks in the actual analysis.
+\end{enumerate}
+
+In this project, I'm aiming to use the following techniques to do the
+analysis:\\
+
+Regression Analysis: Use regression to predict game outcomes.
+player/team performance, game conditions based on the information
+provided in the data set, such as events, goals, clock, period and
+details.\\
+
+Classification Algorithms: Use logistic regression, decision trees,
+random forests, classification trees to classify game outcomes. We can
+also classify event based on the coordinates informations.\\
+
+Clustering: Use K-means clustering can help identify similar players
+based on their performance.\\
+
+Time Series Analysis: As in the data set there're some columns includes
+time aspects, Time series techniques can be helpful to analyze trends
+and make predictions. ~
+
+Two major topics:\\
+
+Topic 1: Individual player performance In this exploration of individual
+player performance, we delve into the intricate details of each player's
+contributions throughout the game. The analysis needs to focus on every
+event in which they participated. We need to focus on the frequency of
+each player's involvement in various event types, ranging from shots and
+plays to takeaways, puck recoveries, dump-ins, dump-outs, zone entries,
+faceoffs, and penalties. By dissecting their participation in these
+events, we gain information about how much they contribute to the game.
+Also, we can develop performance metrics for each event type to
+accurately assess each player's impact. Metrics can be shoting
+efficiency, which calculates the ratio of successful shots to total
+shots, providing a measure of offensive prowess. Also, we calculate
+defensive Impact by evaluating the frequency of takeaways and puck
+recoveries, shedding light on a player's defensive prowess and ability
+to disrupt the opponent's game plan. Through this meticulous analysis
+and the development of specific metrics, we aim to provide a
+comprehensive evaluation of each player's performance. By quantifying
+their contributions across various facets of the game, we gain deeper
+insights into their strengths, weaknesses, and overall impact on the
+team's performance. Furthermore, to improve our analysis, we can
+generate visual charts.\\
+
+To approach Topic 1, we will need to make some modifications to the data
+set to gather information from it, So the data set will focus more on
+players' performance but not the each event, We will first generate some
+subsets which will group the data set by Players, Event, Date, Period,
+calculate the number of each events that each players involved in and
+average coordinates of this player when event happens:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{player\_dat }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(Player, Date, Event, Team, Period) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{avg\_x =} \FunctionTok{mean}\NormalTok{(X.Coordinate), }\AttributeTok{avg\_y =} \FunctionTok{mean}\NormalTok{(Y.Coordinate), }\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Player', 'Date', 'Event', 'Team'. You can
+## override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# head(player\_dat)}
+
+\CommentTok{\# regular time}
+\NormalTok{player\_dat\_reg }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(player\_dat, Period }\SpecialCharTok{!=} \DecValTok{4}\NormalTok{)}
+
+
+\CommentTok{\# specific Offense Performance}
+
+\NormalTok{player\_dat\_off }\OtherTok{\textless{}{-}}\NormalTok{  dat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Event }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Goal"}\NormalTok{, }\StringTok{"Incomplete Play"}\NormalTok{, }\StringTok{"Play"}\NormalTok{, }\StringTok{"Shot"}\NormalTok{, }\StringTok{"Zone Entry"}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Player, Team, Date, Event, Period, X.Coordinate, Y.Coordinate) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Player', 'Team', 'Date', 'Event',
+## 'Period', 'X.Coordinate'. You can override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# head(player\_dat\_off)}
+
+
+\CommentTok{\# specific shoting Performance}
+
+\NormalTok{player\_dat\_shot }\OtherTok{\textless{}{-}}\NormalTok{  dat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Event }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Goal"}\NormalTok{, }\StringTok{"Shot"}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Player, Team, Date, Event, Period, X.Coordinate, Y.Coordinate) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Player', 'Team', 'Date', 'Event',
+## 'Period', 'X.Coordinate'. You can override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# head(player\_dat\_shot)}
+
+
+\CommentTok{\# specific Passing Performance}
+
+\NormalTok{player\_dat\_pass }\OtherTok{\textless{}{-}}\NormalTok{  dat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Event }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Incomplete Play"}\NormalTok{, }\StringTok{"Play"}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Player, Team, Date, Event, Period, X.Coordinate, Y.Coordinate) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Player', 'Team', 'Date', 'Event',
+## 'Period', 'X.Coordinate'. You can override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# head(player\_dat\_pass)}
+
+
+\CommentTok{\# Defense Performance}
+
+\NormalTok{player\_dat\_def }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{anti\_join}\NormalTok{(player\_dat\_off)}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Player, Team, Date, Event, Period, X.Coordinate, Y.Coordinate) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining with `by = join_by(Date, Period, Team, Player, Event, X.Coordinate,
+## Y.Coordinate)`
+## `summarise()` has grouped output by 'Player', 'Team', 'Date', 'Event',
+## 'Period', 'X.Coordinate'. You can override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# head(player\_dat\_def)}
+\end{Highlighting}
+\end{Shaded}
+
+Task 2: Team strategy In this topic, we will focus on analyzing team
+performance involving different aspects of the game, including offensive
+and defensive actions, according to the dataset, the analysis is based
+on: We will start by tracking the number of shots attempted by each
+team, focusing on shots on goal, missed shots, and blocked shots. This
+data will provide valuable insights into the team's offensive strategies
+and their ability to create scoring opportunities. Additionally,
+analyzing shot locations will allow us to identify high-danger areas
+where the team is most effective at generating scoring chances. Moving
+on to passing, we will monitor successful pass attempts and puck
+movement to assess the team's ability to maintain possession and
+orchestrate offensive plays. By examining the types of passes and their
+accuracy, we can gain a deeper understanding of the team's passing
+efficiency and playmaking capabilities. In terms of puck recoveries, we
+will evaluate how quickly the team regains possession after a turnover.
+This metric will shed light on the team's resilience and determination
+in winning back the puck, as well as their ability to transition from
+defence to offence effectively. Furthermore, we will keep track of
+takeaways to measure the team's defensive pressure and their ability to
+disrupt the opponent's plays.\\
+
+To approach Topic 2, we will need to make some modifications to the data
+set to gather information from it, So the data set will focus more on
+Teams' performance but not the each event, We will first generate some
+subsets which will group the data set by Teams (Home/Away/Team), Event,
+Date, Period, calculate the number of each events that each Team
+involved in and average coordinates of this player when event happens:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{team\_dat }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(Team, Date, Event, Period) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{avg\_x =} \FunctionTok{mean}\NormalTok{(X.Coordinate), }\AttributeTok{avg\_y =} \FunctionTok{mean}\NormalTok{(Y.Coordinate), }\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Team', 'Date', 'Event'. You can override
+## using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# regular time overall}
+\NormalTok{team\_dat\_reg }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(team\_dat, Period }\SpecialCharTok{!=} \DecValTok{4}\NormalTok{)}
+
+
+\CommentTok{\# specific Offense Performance}
+
+\NormalTok{team\_dat\_off }\OtherTok{\textless{}{-}}\NormalTok{  dat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Event }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Goal"}\NormalTok{, }\StringTok{"Incomplete Play"}\NormalTok{, }\StringTok{"Play"}\NormalTok{, }\StringTok{"Shot"}\NormalTok{, }\StringTok{"Zone Entry"}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Team, Date, Event, Period, X.Coordinate, Y.Coordinate) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Team', 'Date', 'Event', 'Period',
+## 'X.Coordinate'. You can override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# head(team\_dat\_off)}
+
+\CommentTok{\# specific shoting Performance}
+
+\NormalTok{team\_dat\_shot }\OtherTok{\textless{}{-}}\NormalTok{  dat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Event }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Goal"}\NormalTok{, }\StringTok{"Shot"}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Team, Date, Event, Period, X.Coordinate, Y.Coordinate) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Team', 'Date', 'Event', 'Period',
+## 'X.Coordinate'. You can override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# head(team\_dat\_shot)}
+
+
+\CommentTok{\# specific Passing Performance}
+
+\NormalTok{team\_dat\_pass }\OtherTok{\textless{}{-}}\NormalTok{  dat }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Event }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Incomplete Play"}\NormalTok{, }\StringTok{"Play"}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Team, Date, Event, Period, X.Coordinate, Y.Coordinate) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Team', 'Date', 'Event', 'Period',
+## 'X.Coordinate'. You can override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# head(team\_dat\_pass)}
+
+
+
+\CommentTok{\# Defense Performance}
+
+\NormalTok{team\_dat\_def }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{anti\_join}\NormalTok{(team\_dat\_off)}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(Team, Date, Event, Period, X.Coordinate, Y.Coordinate) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining with `by = join_by(Date, Period, Team, Event, X.Coordinate,
+## Y.Coordinate)`
+## `summarise()` has grouped output by 'Team', 'Date', 'Event', 'Period',
+## 'X.Coordinate'. You can override using the `.groups` argument.
+\end{verbatim}
+
+The subsets computed above may used along with the main data set to do
+the analysis.
+
+\newpage
+
+\vspace{2cm}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{MUST BE INCLUDED} Give a ggpairs plot of what you think are
+  the six most important variables. At least one must be categorical,
+  and one continuous. Explain your choice of variables and the trends
+  between them.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pm }\OtherTok{\textless{}{-}} \FunctionTok{ggpairs}\NormalTok{(team\_dat\_shot, }\AttributeTok{columns =} \FunctionTok{c}\NormalTok{(}\StringTok{"Period"}\NormalTok{, }\StringTok{"Date"}\NormalTok{, }\StringTok{"X.Coordinate"}\NormalTok{, }\StringTok{"Y.Coordinate"}\NormalTok{,}\StringTok{"Event"}\NormalTok{),  }\AttributeTok{mapping=}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Team, }\AttributeTok{alpha=}\FloatTok{0.1}\NormalTok{),}
+              \AttributeTok{cardinality\_threshold =} \ConstantTok{NULL}\NormalTok{,}
+  \AttributeTok{title =} \StringTok{"BDC 2024 Womens shoting Performance"}\NormalTok{)}
+\NormalTok{pm}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{STAT847_W24_Final_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+In question 2, We want to use ggpairs plot to analyze the shoting
+performance of both teams (Team USA and Team Canada) in all four games.
+So we will focus on either Goal: Successful Shot attempts (goal) and
+Shot: Unsuccessful shot attempts (block, miss or save). As mentioned in
+Q1, our goal is to track the number of shots attempted by each team to
+show their ability to create scoring opportunities and the ability to
+shot (finishing). In the meantime, it also can show the opponent's
+goalkeeper's goalkeeping ability. We also will be able to identify the
+high-danger areas where both teams are most effective at creating goal
+opportunities.\\
+
+Now let's talk about the six most important variables I will use to
+generate such a ggpairs plot:\\
+
+X Coordinate / Y Coordinate (Continuous): The X/Y coordinate provides
+important information about their location (Event location) relative to
+offensive, defensive, or neutral zones. In this case, we will focus on
+the offensive. Analyzing this variable enhances our understanding of
+team attacking/ shoting strategies and gameplay tactics. Also, we will
+be able to know the area where they prefer to take a shot and may create
+goal opportunities.\\
+
+Period (Continuous): The period explains the current period when events
+occur. It offers insights into game progression over time. Understanding
+event distribution across periods helps assess team performance and
+strategic adjustments throughout the game.\\
+
+Event (Categorical): The event describes the type of event taking place
+during the game, providing a detailed overview of the current key
+moment. Analyzing event types facilitates the identification of
+patterns, trends, and critical moments in the match. We will be focusing
+on either goals or misses.\\
+
+Team (Categorical): We need to focus on the two teams, Team USA and Team
+Canada, this variable enables analysis of attacking/ shoting strategies
+used by each team. By analyzing team-specific trends and behaviours, we
+will be able to gain deeper insights into their performance and
+competitive strategies.\\
+
+Date (Categorical): There are 4 games in total in the series. Which is
+the following:\\
+2023-11-08, Home Team: USA, Away Team: Canada\\
+2023-11-11, Home Team: USA, Away Team: Canada\\
+2023-12-14, Home Team: Canada, Away Team: USA\\
+2023-12-16, Home Team: Canada, Away Team: USA\\
+
+By using the Date variables, we will be able to see the difference in
+performance and attacking/ shoting strategies both teams use when they
+are at a home game or an away game.\\
+
+Let's take a look at the gg pairs plot in order to get a better
+understanding of the performance of Team Canada and Team USA.\\
+
+We differentiated each team by colour, with pink representing Canada and
+blue representing the USA. Each row in the data set corresponds to
+either a shot or a miss. They also indicate the number of attempts
+(goals or misses) each team made.\\
+
+Plot (1,1) shows the number of attempts per period. It's obvious that
+Team Canada made more shoting attempts than Team USA across all four
+periods. Especially leading in periods 2 and 4 (extra time).\\
+
+Plot (2,2) shows the number of attempts per game (Date). We observe that
+in away games (Canada's away game), Team Canada and Team USA created a
+similar amount of opportunities. However, in home games, Team Canada
+demonstrated a clear advantage in creating shoting opportunities.\\
+
+Plot (1,2) and (2,1) explain attempts per period per game. Notably, Team
+Canada had a higher number of shoting attempts in period 2. Team USA
+only showed stronger offensive willingness in one or two periods in all
+four games. Overall, the ggpairs suggest that Team Canada maintains a
+more aggressive offensive strategy compared to Team USA.\\
+
+A similar situation is shown in plot (5,5). It illustrates the number of
+goals and shots created by both teams in all games. However, although
+Team Canada had a higher number of attempts (shoting opportunities),
+Team USA still scored more goals. This can indicate a potential weakness
+in Team Canada's finishing abilities. The players waste a huge amount of
+chances.\\
+
+Further details are provided in plot (5,1). It shows the number of goals
+and shots per period. Team Canada had a commendable performance in most
+of period 2. It matches the goal rate of Team USA in period 2. However,
+in periods 1, 3, and extra time, Team USA took the lead on the goals.\\
+
+Plot (5,2) reconfirms Team Canada's advantage in creating shoting
+opportunities. But it also highlights a concerning trend: although Team
+Canada always has more shoting opportunities in nearly every game, Team
+Canada failed to secure any victories, ending the series with 3 losses
+and 1 draw. This suggests that Team USA possesses a stronger overall
+performance in the series. It is also possible that Canada's strategy is
+to play more offensively and shot whenever they can. But it doesn't have
+any effective effect. More aggressive can cause the opponent to have a
+chance to make a quick counterattack.~
+
+Beyond goal-scoring statistics, we need to also analyze the spatial
+distribution of attempts:\\
+
+For Team USA:\\
+
+X-axis analysis in column 3 indicates a preferred shoting area (global
+maximum) just below 180 in plots (3,3) and (5,3). Similarly, the
+majority of goals fall within the range of 170-190. Which is the area
+pretty close to the goal gate.\\
+Y-axis plots in column 4 have a peak around 45, with corresponding goals
+clustered between 35-55 in plots (4,4) and (5,4). Which is in the middle
+y-axis, which means facing the goal gate directly.\\
+
+For Team Canada:\\
+
+X-axis analysis in column 3 highlights multiple local maximums and a
+global maximum at 180, with additional peaks at 140 and 160, indicating
+preferred shoting positions. But most of the goals are still around
+180.\\
+The maximum of Y-axes in column 4 is also around 40 again, facing the
+goal gate directly. But it has a much-flattened graph.\\
+According to this result, we can also think maybe team Canada is trying
+to score at a tricky angle, but barely succeeds.\\
+
+In Q6, we will also having a ggplot which is about the offense
+performance of both team, we will be taking about their game strategies
+combine with ggplot graph and ggpairs.
+
+\newpage
+
+\vspace{2cm}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{MUST BE INCLUDED} Build a classification tree of one of the
+  six variables from the last part as a function of the other five, and
+  any other explanatory variables you think are necessary. Show code,
+  explain reasoning, and show the tree as a simple (ugly) plot. Show the
+  confusion matrix. Give two example predictions and follow them down
+  the tree.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# split data}
+
+\NormalTok{dat\_no\_pass }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(dat, Event }\SpecialCharTok{!=} \StringTok{"Play"} \SpecialCharTok{\&}\NormalTok{ Event }\SpecialCharTok{!=} \StringTok{"Incomplete Play"}\NormalTok{)}
+\NormalTok{dat\_split }\OtherTok{\textless{}{-}} \FunctionTok{initial\_split}\NormalTok{(dat\_no\_pass, }\AttributeTok{prop =} \FloatTok{0.8}\NormalTok{)}
+\NormalTok{dat\_train }\OtherTok{\textless{}{-}} \FunctionTok{training}\NormalTok{(dat\_split)}
+\NormalTok{dat\_test }\OtherTok{\textless{}{-}} \FunctionTok{testing}\NormalTok{(dat\_split) }
+
+\NormalTok{fit }\OtherTok{=} \FunctionTok{rpart}\NormalTok{(Event}\SpecialCharTok{\textasciitilde{}}\NormalTok{Period }\SpecialCharTok{+}\NormalTok{ Date}\SpecialCharTok{+}\NormalTok{Y.Coordinate}\SpecialCharTok{+}\NormalTok{X.Coordinate }\SpecialCharTok{+}\NormalTok{ Team, }\AttributeTok{method=}\StringTok{"class"}\NormalTok{, }\AttributeTok{data=}\NormalTok{dat\_train)}
+
+
+\CommentTok{\# Use pruning}
+\NormalTok{pfit}\OtherTok{\textless{}{-}} \FunctionTok{prune}\NormalTok{(fit, }\AttributeTok{cp=}\NormalTok{ fit}\SpecialCharTok{$}\NormalTok{cptable[}\FunctionTok{which.min}\NormalTok{(fit}\SpecialCharTok{$}\NormalTok{cptable[,}\StringTok{"xerror"}\NormalTok{]),}\StringTok{"CP"}\NormalTok{])}
+\FunctionTok{fancyRpartPlot}\NormalTok{(pfit, }\AttributeTok{main=}\StringTok{"Classification tree of Event"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{STAT847_W24_Final_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(pfit, dat\_test, }\StringTok{"class"}\NormalTok{)}
+
+\CommentTok{\# Make the confusion matrix}
+\NormalTok{confusion }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(pred, dat\_test}\SpecialCharTok{$}\NormalTok{Event)}
+\FunctionTok{print}\NormalTok{(confusion)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                
+## pred            Dump In/Out Faceoff Win Goal Penalty Taken Puck Recovery Shot
+##   Dump In/Out             0           0    0             0             0    0
+##   Faceoff Win             1          15    0             0             3    0
+##   Goal                    0           0    0             0             0    0
+##   Penalty Taken           0           0    0             0             0    0
+##   Puck Recovery         113          12    0            11           416    8
+##   Shot                    2          18    1             0            38   76
+##   Takeaway                0           0    0             0             0    0
+##   Zone Entry              0           0    0             0             2    0
+##                
+## pred            Takeaway Zone Entry
+##   Dump In/Out          0          0
+##   Faceoff Win          0          0
+##   Goal                 0          0
+##   Penalty Taken        0          0
+##   Puck Recovery       43          1
+##   Shot                 4          1
+##   Takeaway             0          0
+##   Zone Entry           0        106
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Print accuracy}
+\NormalTok{accuracy }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{diag}\NormalTok{(confusion)) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(confusion)}
+\FunctionTok{print}\NormalTok{(accuracy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7037887
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Exmaple predicions}
+
+\CommentTok{\# 1}
+\NormalTok{pred1 }\OtherTok{=} \FunctionTok{predict}\NormalTok{(pfit, dat\_test[}\DecValTok{1}\NormalTok{,], }\StringTok{"class"}\NormalTok{)}
+
+\CommentTok{\# 2}
+\NormalTok{pred2 }\OtherTok{=} \FunctionTok{predict}\NormalTok{(pfit, dat\_test[}\DecValTok{2}\NormalTok{,], }\StringTok{"class"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(}\StringTok{"{-}{-}Example 1{-}{-}"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "--Example 1--"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(dat\_test[}\DecValTok{1}\NormalTok{, ])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Date             Home.Team      Away.Team Period Clock
+## 1 2023-11-08 Women - United States Women - Canada      1 19:45
+##   Home.Team.Skaters Away.Team.Skaters Home.Team.Goals Away.Team.Goals
+## 1                 5                 5               0               0
+##             Team      Player         Event X.Coordinate Y.Coordinate Detail.1
+## 1 Women - Canada Renata Fast Puck Recovery            9            9         
+##   Detail.2 Detail.3 Detail.4 Player.2 X.Coordinate.2 Y.Coordinate.2
+## 1                                                 NA             NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(pred1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             1 
+## Puck Recovery 
+## 8 Levels: Dump In/Out Faceoff Win Goal Penalty Taken Puck Recovery ... Zone Entry
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\StringTok{"{-}{-}Example 2{-}{-}"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "--Example 2--"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(dat\_test[}\DecValTok{2}\NormalTok{, ])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Date             Home.Team      Away.Team Period Clock
+## 2 2023-11-08 Women - United States Women - Canada      1 19:39
+##   Home.Team.Skaters Away.Team.Skaters Home.Team.Goals Away.Team.Goals
+## 2                 5                 5               0               0
+##             Team              Player         Event X.Coordinate Y.Coordinate
+## 2 Women - Canada Marie-Philip Poulin Puck Recovery           64           40
+##   Detail.1 Detail.2 Detail.3 Detail.4 Player.2 X.Coordinate.2 Y.Coordinate.2
+## 2                                                          NA             NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(pred2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             2 
+## Puck Recovery 
+## 8 Levels: Dump In/Out Faceoff Win Goal Penalty Taken Puck Recovery ... Zone Entry
+\end{verbatim}
+
+We aim to construct a classification tree to classify one of the six
+variables from the previous question. We will choose the Event. Building
+such a classification tree assists us in classifying the potential
+attributes of each event.\\
+
+We exclude passing actions from classification due to their high
+frequency, location-free, and potential similarity with unsuccessful
+passing. This exclusion prevents confusion in the classification tree
+and ensures distinct attributes for each event category.\\
+
+In further analysis, we can build a classification tree to classify the
+passing location by teams, which allows us to find out if there's a
+specific location where one of the teams likes to do the passing. But in
+this question, We will focus solely on classifying non-passing events in
+order to build a more general tree.\\
+
+From the classification tree, it's evident that only the X-coordinate
+and Y-coordinate are used. This could be due to a few reasons:\\
+
+Let's consider other variables:\\
+
+Date / Period: These variables represents the date and period of the
+game, it's not a signiciant aid for classification since all events can
+happens in all period/ games. The events listed all have high frequency
+and they are most likely going to happens anytime during the game.\\
+
+Team: Any team can trigger any event. Therefore, this variable does not
+offer substantial value for classification purposes.\\
+
+Hence, these variables are unlikely to significantly aid in the
+construction of our classification tree.\\
+
+\newpage
+
+\vspace{2cm}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{MUST BE INCLUDED} Build another model using one of the
+  continuous variables from your six most important. This time use your
+  model selection and dimension reduction tools, and include at least
+  one non-linear term.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# prepare data}
+\NormalTok{model\_dat }\OtherTok{\textless{}{-}}\NormalTok{ dat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(Team,Period, X.Coordinate, Event) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{num\_event =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'Team', 'Period', 'X.Coordinate'. You can
+## override using the `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat\_split }\OtherTok{\textless{}{-}} \FunctionTok{initial\_split}\NormalTok{(model\_dat, }\AttributeTok{prop =} \FloatTok{0.8}\NormalTok{)}
+\NormalTok{dat\_train }\OtherTok{\textless{}{-}} \FunctionTok{training}\NormalTok{(dat\_split)}
+\NormalTok{dat\_test }\OtherTok{\textless{}{-}} \FunctionTok{testing}\NormalTok{(dat\_split) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(dat\_train}\SpecialCharTok{$}\NormalTok{num\_event}\SpecialCharTok{\textasciitilde{}} \FunctionTok{I}\NormalTok{(X.Coordinate}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+}\NormalTok{., }\AttributeTok{data =}\NormalTok{dat\_train)}
+
+\CommentTok{\# Use Stepwise regression}
+\NormalTok{step }\OtherTok{\textless{}{-}} \FunctionTok{step}\NormalTok{(lm\_model, }\AttributeTok{direction=}\StringTok{"both"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Start:  AIC=4505.98
+## dat_train$num_event ~ I(X.Coordinate^2) + (Team + Period + X.Coordinate + 
+##     Event)
+## 
+##                     Df Sum of Sq   RSS    AIC
+## - Team               1       0.2 13896 4504.0
+## <none>                           13896 4506.0
+## - Period             3     330.1 14226 4565.3
+## - I(X.Coordinate^2)  1     607.9 14504 4623.0
+## - X.Coordinate       1     773.9 14670 4654.7
+## - Event              9    8803.4 22699 5852.7
+## 
+## Step:  AIC=4504.02
+## dat_train$num_event ~ I(X.Coordinate^2) + Period + X.Coordinate + 
+##     Event
+## 
+##                     Df Sum of Sq   RSS    AIC
+## <none>                           13896 4504.0
+## + Team               1       0.2 13896 4506.0
+## - Period             3     330.0 14226 4563.3
+## - I(X.Coordinate^2)  1     608.0 14504 4621.1
+## - X.Coordinate       1     774.2 14670 4652.8
+## - Event              9    8803.3 22699 5850.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(step)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = dat_train$num_event ~ I(X.Coordinate^2) + Period + 
+##     X.Coordinate + Event, data = dat_train)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -18.4927  -0.9233  -0.1913   0.5373  31.5250 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)           3.039e+00  1.826e-01  16.646  < 2e-16 ***
+## I(X.Coordinate^2)     1.581e-04  1.437e-05  11.001  < 2e-16 ***
+## Period2               2.313e-02  1.050e-01   0.220   0.8256    
+## Period3              -1.003e-02  1.060e-01  -0.095   0.9246    
+## Period4              -2.048e+00  2.604e-01  -7.865 5.25e-15 ***
+## X.Coordinate         -3.601e-02  2.901e-03 -12.414  < 2e-16 ***
+## EventFaceoff Win      6.219e+00  4.578e-01  13.584  < 2e-16 ***
+## EventGoal            -3.974e-01  5.819e-01  -0.683   0.4947    
+## EventIncomplete Play -2.182e-01  1.693e-01  -1.289   0.1976    
+## EventPenalty Taken   -7.318e-01  4.436e-01  -1.650   0.0991 .  
+## EventPlay             8.956e-01  1.513e-01   5.918 3.65e-09 ***
+## EventPuck Recovery    8.187e-01  1.526e-01   5.366 8.73e-08 ***
+## EventShot             2.494e-01  2.149e-01   1.161   0.2458    
+## EventTakeaway        -5.294e-01  2.112e-01  -2.507   0.0122 *  
+## EventZone Entry       1.848e+01  4.881e-01  37.850  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.241 on 2766 degrees of freedom
+## Multiple R-squared:  0.4003, Adjusted R-squared:  0.3973 
+## F-statistic: 131.9 on 14 and 2766 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# mean squared error}
+\NormalTok{test }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{predict}\NormalTok{(step, dat\_test), }\AttributeTok{actual =}\NormalTok{ dat\_test}\SpecialCharTok{$}\NormalTok{num\_event)}
+\FunctionTok{mean}\NormalTok{((test}\SpecialCharTok{$}\NormalTok{actual }\SpecialCharTok{{-}}\NormalTok{ test}\SpecialCharTok{$}\NormalTok{pred)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.035467
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use best subsets regression with the Adjusted R{-}squared criterion}
+
+\NormalTok{regsubsetsObj }\OtherTok{\textless{}{-}} \FunctionTok{regsubsets}\NormalTok{(dat\_train}\SpecialCharTok{$}\NormalTok{num\_event}\SpecialCharTok{\textasciitilde{}} \FunctionTok{I}\NormalTok{(X.Coordinate}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{dat\_train, }\AttributeTok{really.big=}\ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{summary}\NormalTok{(regsubsetsObj)}\SpecialCharTok{$}\NormalTok{adjr2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2874915 0.3215921 0.3324492 0.3559632 0.3670528 0.3815303 0.3955162
+## [8] 0.3968622
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{coef\_list }\OtherTok{=} \FunctionTok{coef}\NormalTok{(regsubsetsObj,}\DecValTok{8}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(coef\_list)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        (Intercept)  I(X.Coordinate^2)            Period4       X.Coordinate 
+##       2.7999055877       0.0001523115      -2.0655980621      -0.0350225213 
+##   EventFaceoff Win          EventPlay EventPuck Recovery          EventShot 
+##       6.4366905185       1.1198904027       1.0437527167       0.4875967598 
+##    EventZone Entry 
+##      18.6871943671
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{regsubsets\_formula }\OtherTok{=} \StringTok{"dat\_train$num\_event\textasciitilde{}"}
+
+\NormalTok{coef\_list }\OtherTok{=}\NormalTok{ coef\_list[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\ControlFlowTok{for}\NormalTok{ (name }\ControlFlowTok{in} \FunctionTok{names}\NormalTok{(coef\_list)) \{}
+\NormalTok{  value }\OtherTok{\textless{}{-}}\NormalTok{ coef\_list[[name]]}
+  \ControlFlowTok{if}\NormalTok{ (value }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{)\{}
+\NormalTok{    name }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"\^{}Period"}\NormalTok{, name), }\StringTok{"Period"}\NormalTok{, name)}
+\NormalTok{    name }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"\^{}Event"}\NormalTok{, name), }\StringTok{"Event"}\NormalTok{, name)}
+\NormalTok{    regsubsets\_formula }\OtherTok{=} \FunctionTok{paste}\NormalTok{(regsubsets\_formula, name)}
+\NormalTok{    regsubsets\_formula }\OtherTok{=} \FunctionTok{paste}\NormalTok{(regsubsets\_formula, }\StringTok{"+"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+\NormalTok{regsubsets\_formula }\OtherTok{\textless{}{-}} \FunctionTok{substring}\NormalTok{(regsubsets\_formula, }\DecValTok{1}\NormalTok{, }\FunctionTok{nchar}\NormalTok{(regsubsets\_formula) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# print(regsubsets\_formula)}
+\NormalTok{best\_sub\_model }\OtherTok{=} \FunctionTok{lm}\NormalTok{(}\FunctionTok{as.formula}\NormalTok{(regsubsets\_formula), }\AttributeTok{data =}\NormalTok{ dat\_train)}
+
+\FunctionTok{summary}\NormalTok{(best\_sub\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = as.formula(regsubsets_formula), data = dat_train)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -18.4927  -0.9233  -0.1913   0.5373  31.5250 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)           3.039e+00  1.826e-01  16.646  < 2e-16 ***
+## I(X.Coordinate^2)     1.581e-04  1.437e-05  11.001  < 2e-16 ***
+## Period2               2.313e-02  1.050e-01   0.220   0.8256    
+## Period3              -1.003e-02  1.060e-01  -0.095   0.9246    
+## Period4              -2.048e+00  2.604e-01  -7.865 5.25e-15 ***
+## X.Coordinate         -3.601e-02  2.901e-03 -12.414  < 2e-16 ***
+## EventFaceoff Win      6.219e+00  4.578e-01  13.584  < 2e-16 ***
+## EventGoal            -3.974e-01  5.819e-01  -0.683   0.4947    
+## EventIncomplete Play -2.182e-01  1.693e-01  -1.289   0.1976    
+## EventPenalty Taken   -7.318e-01  4.436e-01  -1.650   0.0991 .  
+## EventPlay             8.956e-01  1.513e-01   5.918 3.65e-09 ***
+## EventPuck Recovery    8.187e-01  1.526e-01   5.366 8.73e-08 ***
+## EventShot             2.494e-01  2.149e-01   1.161   0.2458    
+## EventTakeaway        -5.294e-01  2.112e-01  -2.507   0.0122 *  
+## EventZone Entry       1.848e+01  4.881e-01  37.850  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.241 on 2766 degrees of freedom
+## Multiple R-squared:  0.4003, Adjusted R-squared:  0.3973 
+## F-statistic: 131.9 on 14 and 2766 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# mean squared error}
+\NormalTok{test }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{predict}\NormalTok{(best\_sub\_model, dat\_test), }\AttributeTok{actual =}\NormalTok{ dat\_test}\SpecialCharTok{$}\NormalTok{num\_event)}
+\FunctionTok{mean}\NormalTok{((test}\SpecialCharTok{$}\NormalTok{actual }\SpecialCharTok{{-}}\NormalTok{ test}\SpecialCharTok{$}\NormalTok{pred)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.035467
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use Dimension reduction tool}
+\NormalTok{famd }\OtherTok{\textless{}{-}} \FunctionTok{FAMD}\NormalTok{(dat\_train,}\AttributeTok{ncp=}\DecValTok{3}\NormalTok{, }\AttributeTok{graph=}\ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Extract the components}
+\NormalTok{reduced }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(famd}\SpecialCharTok{$}\NormalTok{ind}\SpecialCharTok{$}\NormalTok{coord)}
+
+\CommentTok{\# Build a linear model }
+\NormalTok{famd\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(dat\_train}\SpecialCharTok{$}\NormalTok{num\_event}\SpecialCharTok{\textasciitilde{}} \FunctionTok{I}\NormalTok{(Dim}\FloatTok{.1}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ reduced )}
+
+\CommentTok{\# Print the summary of the linear model}
+\FunctionTok{summary}\NormalTok{(famd\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = dat_train$num_event ~ I(Dim.1^2) + ., data = reduced)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -14.0736  -0.4746  -0.1164   0.3304  10.0339 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  2.137579   0.024547  87.082  < 2e-16 ***
+## I(Dim.1^2)   0.023061   0.003109   7.417 1.58e-13 ***
+## Dim.1        1.782341   0.038862  45.863  < 2e-16 ***
+## Dim.2        0.011092   0.021460   0.517    0.605    
+## Dim.3       -0.250660   0.023583 -10.629  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.268 on 2776 degrees of freedom
+## Multiple R-squared:  0.8075, Adjusted R-squared:  0.8072 
+## F-statistic:  2911 on 4 and 2776 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use Dimension reduction tool}
+\NormalTok{famd\_test }\OtherTok{\textless{}{-}} \FunctionTok{FAMD}\NormalTok{(dat\_test,}\AttributeTok{ncp=}\DecValTok{3}\NormalTok{, }\AttributeTok{graph=}\ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Extract the components}
+\NormalTok{reduced\_test }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(famd\_test}\SpecialCharTok{$}\NormalTok{ind}\SpecialCharTok{$}\NormalTok{coord)}
+
+\CommentTok{\# mean squared error}
+\NormalTok{test }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{predict}\NormalTok{(famd\_model, reduced\_test), }\AttributeTok{actual =}\NormalTok{ dat\_test}\SpecialCharTok{$}\NormalTok{num\_event)}
+\FunctionTok{mean}\NormalTok{((test}\SpecialCharTok{$}\NormalTok{actual }\SpecialCharTok{{-}}\NormalTok{ test}\SpecialCharTok{$}\NormalTok{pred)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.586788
+\end{verbatim}
+
+In this question, we are constructing a model using one of the
+continuous variables among my six most important ones, which is
+X-Coordinate. The model predicts the number of events at a given Period,
+Team, and X-coordinate. We build three models using stepwise regression,
+best-subset, and Factor Analysis of Mixed Data. By calculating mean
+square error on the test set, we find that the RAMD model has the
+smallest error, and it's simpler with reduced dimensionality to 3. Using
+this model, we can predict and learn about each team's strategy. As the
+model learns each team's habits, we'll know what events are likely to
+happen across all x-axes for each team and the estimated number of
+events in specific locations during specific periods. This is valuable
+for estimating each team's performance and strategies.
+
+\newpage
+
+\vspace{2cm}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  \textbf{OPTIONAL: PICK 2 OF 4} Build a visually impressive ggplot to
+  show the relationship between at least three variables.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat6 }\OtherTok{=}\NormalTok{ dat}
+
+\NormalTok{time\_parts }\OtherTok{\textless{}{-}} \FunctionTok{strsplit}\NormalTok{(dat6}\SpecialCharTok{$}\NormalTok{Clock, }\StringTok{":"}\NormalTok{)}
+
+
+
+
+
+\NormalTok{clock\_to\_sec }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(clock) \{}
+\NormalTok{  clock\_parts }\OtherTok{\textless{}{-}} \FunctionTok{strsplit}\NormalTok{(clock, }\StringTok{":"}\NormalTok{)}
+\NormalTok{  minutes }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(clock\_parts[[}\DecValTok{1}\NormalTok{]][}\DecValTok{1}\NormalTok{])}
+\NormalTok{  seconds }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(clock\_parts[[}\DecValTok{1}\NormalTok{]][}\DecValTok{2}\NormalTok{])}
+  \FunctionTok{return}\NormalTok{(}\DecValTok{1200} \SpecialCharTok{{-}}\NormalTok{ (minutes }\SpecialCharTok{*} \DecValTok{60} \SpecialCharTok{+}\NormalTok{ seconds))}
+\NormalTok{\}}
+
+\CommentTok{\# Change the clock to second and start from 00:00 instead of 20:00}
+\NormalTok{dat6}\SpecialCharTok{$}\NormalTok{Clock\_sec }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{sapply}\NormalTok{(dat6}\SpecialCharTok{$}\NormalTok{Clock, clock\_to\_sec) }\SpecialCharTok{+}\NormalTok{ (}\FunctionTok{as.numeric}\NormalTok{(dat6}\SpecialCharTok{$}\NormalTok{Period) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{*} \DecValTok{1200}\NormalTok{ )}
+
+
+\CommentTok{\# Make a column tracking the shoting event}
+\NormalTok{make\_cont }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(shot\_count, team, game\_date) \{}
+\NormalTok{  curr }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{  curr\_Date }\OtherTok{=} \StringTok{"2023{-}11{-}08"}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(shot\_count)) \{}
+    \ControlFlowTok{if}\NormalTok{ (shot\_count[i] }\SpecialCharTok{!=} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{) \{}
+\NormalTok{      curr }\OtherTok{\textless{}{-}}\NormalTok{ shot\_count[i]}
+      \ControlFlowTok{if}\NormalTok{ (game\_date[i] }\SpecialCharTok{==} \StringTok{"2023{-}11{-}11"}\NormalTok{)\{}
+        \ControlFlowTok{if}\NormalTok{ (team }\SpecialCharTok{==} \StringTok{"Women {-} Canada"}\NormalTok{)\{}
+\NormalTok{          curr }\OtherTok{\textless{}{-}}\NormalTok{ curr }\SpecialCharTok{{-}} \DecValTok{55}
+\NormalTok{        \}}\ControlFlowTok{else}\NormalTok{\{curr }\OtherTok{\textless{}{-}}\NormalTok{ curr }\SpecialCharTok{{-}} \DecValTok{56}\NormalTok{\}}
+\NormalTok{      \}}
+      \ControlFlowTok{if}\NormalTok{ (game\_date[i] }\SpecialCharTok{==} \StringTok{"2023{-}12{-}14"}\NormalTok{)\{}
+        \ControlFlowTok{if}\NormalTok{ (team }\SpecialCharTok{==} \StringTok{"Women {-} Canada"}\NormalTok{)\{}
+\NormalTok{          curr }\OtherTok{\textless{}{-}}\NormalTok{ curr }\SpecialCharTok{{-}} \DecValTok{105}
+\NormalTok{        \}}\ControlFlowTok{else}\NormalTok{\{curr }\OtherTok{\textless{}{-}}\NormalTok{ curr }\SpecialCharTok{{-}} \DecValTok{95}\NormalTok{\}}
+\NormalTok{      \}}
+      \ControlFlowTok{if}\NormalTok{ (game\_date[i] }\SpecialCharTok{==} \StringTok{"2023{-}12{-}16"}\NormalTok{)\{}
+        \ControlFlowTok{if}\NormalTok{ (team }\SpecialCharTok{==} \StringTok{"Women {-} Canada"}\NormalTok{)\{}
+\NormalTok{          curr }\OtherTok{\textless{}{-}}\NormalTok{ curr }\SpecialCharTok{{-}} \DecValTok{162}
+\NormalTok{        \}}\ControlFlowTok{else}\NormalTok{\{curr }\OtherTok{\textless{}{-}}\NormalTok{ curr }\SpecialCharTok{{-}} \DecValTok{138}\NormalTok{\}}
+\NormalTok{      \}}
+\NormalTok{      shot\_count[i] }\OtherTok{\textless{}{-}}\NormalTok{ curr}
+\NormalTok{      curr\_Date }\OtherTok{=}\NormalTok{ game\_date[i]}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+      \ControlFlowTok{if}\NormalTok{ (game\_date[i] }\SpecialCharTok{!=}\NormalTok{ curr\_Date)\{}
+\NormalTok{        shot\_count[i] }\OtherTok{\textless{}{-}} \DecValTok{0}\NormalTok{\}}
+      \ControlFlowTok{else}\NormalTok{\{shot\_count[i] }\OtherTok{\textless{}{-}}\NormalTok{ curr\}}
+      
+\NormalTok{    \}}
+\NormalTok{  \}}
+  
+  \FunctionTok{return}\NormalTok{(shot\_count)}
+\NormalTok{\}}
+
+
+\CommentTok{\# cumsum the shots for both team}
+\NormalTok{dat6 }\OtherTok{\textless{}{-}}\NormalTok{ dat6 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(Date, Clock\_sec) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Shoot\_Count\_ca =} \FunctionTok{ifelse}\NormalTok{(Team }\SpecialCharTok{==} \StringTok{"Women {-} Canada"} \SpecialCharTok{\&}\NormalTok{ Event }\SpecialCharTok{==} \StringTok{"Shot"}\NormalTok{, }\FunctionTok{cumsum}\NormalTok{(Event }\SpecialCharTok{==} \StringTok{"Shot"} \SpecialCharTok{\&}\NormalTok{ Team }\SpecialCharTok{==} \StringTok{"Women {-} Canada"}\NormalTok{), }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{))}
+
+
+\NormalTok{dat6 }\OtherTok{\textless{}{-}}\NormalTok{ dat6 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(Date, Clock\_sec) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Shoot\_Count\_us =} \FunctionTok{ifelse}\NormalTok{(Team }\SpecialCharTok{==} \StringTok{"Women {-} United States"} \SpecialCharTok{\&}\NormalTok{ Event }\SpecialCharTok{==} \StringTok{"Shot"}\NormalTok{, }\FunctionTok{cumsum}\NormalTok{(Event }\SpecialCharTok{==} \StringTok{"Shot"} \SpecialCharTok{\&}\NormalTok{ Team }\SpecialCharTok{==} \StringTok{"Women {-} United States"}\NormalTok{), }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{))}
+
+\NormalTok{dat6}\SpecialCharTok{$}\NormalTok{Shoot\_Count\_ca }\OtherTok{=} \FunctionTok{make\_cont}\NormalTok{(dat6}\SpecialCharTok{$}\NormalTok{Shoot\_Count\_ca, }\StringTok{"Women {-} Canada"}\NormalTok{,dat6}\SpecialCharTok{$}\NormalTok{Date)}
+\NormalTok{dat6}\SpecialCharTok{$}\NormalTok{Shoot\_Count\_us }\OtherTok{=} \FunctionTok{make\_cont}\NormalTok{(dat6}\SpecialCharTok{$}\NormalTok{Shoot\_Count\_us,}\StringTok{"Women {-} United States"}\NormalTok{,dat6}\SpecialCharTok{$}\NormalTok{Date)}
+
+\FunctionTok{ggplot}\NormalTok{(dat6, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Clock\_sec)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Shoot\_Count\_ca, }\AttributeTok{color =} \StringTok{"Canada\_shots"}\NormalTok{), }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Shoot\_Count\_us, }\AttributeTok{color =} \StringTok{"USA\_shots"}\NormalTok{), }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  
+   \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Home.Team.Goals }\SpecialCharTok{*} \DecValTok{9}\NormalTok{, }\AttributeTok{color =} \FunctionTok{ifelse}\NormalTok{(Home.Team }\SpecialCharTok{==} \StringTok{"Women {-} Canada"}\NormalTok{, }\StringTok{"Canada\_Home"}\NormalTok{, }\StringTok{"USA\_Home"}\NormalTok{)), }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Away.Team.Goals }\SpecialCharTok{*} \DecValTok{9}\NormalTok{, }\AttributeTok{color =} \FunctionTok{ifelse}\NormalTok{(Away.Team }\SpecialCharTok{==} \StringTok{"Women {-} Canada"}\NormalTok{, }\StringTok{"Canada\_Away"}\NormalTok{, }\StringTok{"USA\_Away"}\NormalTok{)), }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  
+    \FunctionTok{scale\_y\_continuous}\NormalTok{(}
+    
+    \AttributeTok{name =} \StringTok{"Number of Shots"}\NormalTok{,}
+    
+    \AttributeTok{sec.axis =} \FunctionTok{sec\_axis}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{.}\SpecialCharTok{/}\DecValTok{9}\NormalTok{, }\AttributeTok{name=}\StringTok{"Number of Goals"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{+} 
+  
+  
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ Date, }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{, }\AttributeTok{scales =} \StringTok{\textquotesingle{}free\_y\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlim}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{4800}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\AttributeTok{Canada\_Home =} \StringTok{"red"}\NormalTok{, }\AttributeTok{Canada\_Away =} \StringTok{"lightcoral"}\NormalTok{,}
+                               \AttributeTok{USA\_Home =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{USA\_Away =} \StringTok{"lightblue4"}\NormalTok{, }
+                               \AttributeTok{Canada\_shots =} \StringTok{"pink1"}\NormalTok{, }\AttributeTok{USA\_shots =} \StringTok{"lightskyblue2"}\NormalTok{,}
+                               \AttributeTok{Other =} \StringTok{"black"}\NormalTok{)) }\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Goals Comparison between Teams"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Clock Time"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Number of Goals"}\NormalTok{, }\AttributeTok{color =} \StringTok{"Team"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1200}\NormalTok{, }\DecValTok{2400}\NormalTok{, }\DecValTok{3600}\NormalTok{, }\DecValTok{4800}\NormalTok{), }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}
+    \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{20}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{),}
+    \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{),}
+    \AttributeTok{legend.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{),}
+    \AttributeTok{legend.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{),}
+    \AttributeTok{panel.grid.minor =} \FunctionTok{element\_blank}\NormalTok{(),}
+    \AttributeTok{panel.grid.major =} \FunctionTok{element\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"gray"}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## i Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\includegraphics{STAT847_W24_Final_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+The plot illustrates the correlation among Clock Time, Period, Date,
+Home Team, Away Team, Home Team Goals, and Away Team Goals.Also with the
+number of shots both team have.\\
+
+Clock Time is derived from the clock and period columns, where the clock
+counts down while the clock time counts up. Each period spans 20
+minutes, equivalent to 1200 seconds. Thus, the current clock time is
+calculated as 1200 multiplied by the period number minus one, plus the
+clock time counting up. The dotted line denotes the period divisions.
+The labels distinguish between the Team USA and Team Canada, either it's
+home or away, and the amount of attempts both teams do in order to get
+goal. Left y-axis stands for number of shots each team made, right
+y-axis stands for number of goals each team have by making these amount
+of shots.\\
+
+From the graph, we obtained similar results as ggpairs, revealing that
+although Team Canada has a significant advantage in shot quantity, it
+doesn't translate into goals. In the Dec.16 game, despite Canada's
+efforts to score in the second and third periods, numerous attempts only
+led to Team USA extending their lead.\\
+
+We can also analyze both teams' attacking strategies using this plot.\\
+
+For Team USA:\\
+In their Home Game, the shot count rises steadily when the score is
+close. Once they lead by a lot, they become more aggressive.
+Particularly in game 2, with a substantial lead, attempts increase
+notably in period 3.\\
+In their Away Game, shots increase steadily but decrease toward the end.
+This can be because they are prioritizing defence over offence,
+regardless of the score. They prefer not to lose than win the game.\\
+
+Team USA maintains stable strategic plans, efficiently converting goals.
+Although we didn't analyze the defence part yet, we should be able to
+know that they excel in defence and counterattacks against the
+aggressive Team Canada.\\
+
+For Team Canada:\\
+With a more offensive approach, Team Canada persistently seeks goals
+regardless of the period or score. Their strategy is pure attack,
+considering it the best form of defence. Most players are good at
+creating shooting opportunities and exhibit high energy.\\
+
+Although we lack additional plots to analyze defence, we can speculate
+on Team Canada's losses. They may lack strong defensive players, relying
+too heavily on offence. Additionally, their wide shooting zone suggests
+a strategy akin to gegenpressing in soccer, prioritizing attack over
+defence, leaving them vulnerable to counterattacks.\\
+
+\newpage
+
+\vspace{2cm}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  \textbf{OPTIONAL: PICK 2 OF 4} Discuss briefly any ethical concerns
+  like residual disclosure that might arise from the use of your data
+  set, possibly in combination with some additional data outside your
+  dataset.
+\end{enumerate}
+
+My dataset containing detailed event data for women's hockey, it will
+normally raise ethical concerns, especially regarding personal privacy,
+and information disclosure. Let's combine several points covered in the
+lecture and list some ethical considerations.\\
+
+Privacy is the most important topic we need to be aware of when dealing
+with statistical activities involving personal information. Thus,
+privacy and security considerations are key and mandatory. The dataset
+includes information about specific players, teams, and their
+performance during games, potentially giving the information to do the
+identification of individuals when combined with other events. For
+instance, strange player performance or unusual behaviour on the court
+could be cross-referenced with external news, compromising their privacy
+and potentially harming the players.\\
+
+Moreover, since the dataset encompasses details about players, teams,
+and their in-game actions or strategies, it's crucial to ensure whether
+the players and teams consent to collecting and using their data for
+research purposes. Without proper consent, utilizing the data would
+undoubtedly raise ethical concerns regarding respect for individuals'
+rights. And also may harm teams and player, and waste their work on
+preparing strategies. This is very disrespectful.\\
+
+When conducting statistical activities, it's necessary to consider all
+potential risks to the well-being of individuals or specific groups.
+Analysis of the data may reveal biases in the game, such as biased
+officiating, disparities in player treatment, or discriminatory
+practices, which occur frequently across all sports. It can be the
+referee on the court, it can be fans in the stadium. Being aware of
+these biases is essential to ensure that our analysis does not cause
+harm.\\
+
+Statistical activities aimed at benefiting society must be transparent
+about data sources, usage, and confidentiality measures. Respect for
+data ownership rights and proper attribution to the source are
+imperative. Using data without permission or failing to acknowledge
+dataset contributions is unacceptable and disrespectful.\\
+
+Conducting analysis or drawing conclusions without considering broader
+contexts can lead to misinterpretations. We must be meticulous, striving
+for transparency and ethical integrity in our analysis and reporting
+endeavors.\\
+
+\end{document}
