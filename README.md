@@ -1,5 +1,6 @@
 # Hockey Data Analysis Project
 
+Hockey Data from : https://www.stathletes.com/big-data-cup/
 ## Introduction
 
 This project aims to analyze hockey game data using various statistical and machine learning techniques to gain insights into team performance, player behavior, and game outcomes. The following techniques will be employed for analysis:
@@ -13,7 +14,6 @@ This project aims to analyze hockey game data using various statistical and mach
 
 ## Team Strategy Analysis
 
-Data from : https://www.stathletes.com/big-data-cup/
 ### Offensive Strategies
 
 - **Shots Analysis:** Track the number of shots attempted by each team, focusing on shots on goal, missed shots, and blocked shots. Analyze shot locations to identify high-danger areas for scoring opportunities.
